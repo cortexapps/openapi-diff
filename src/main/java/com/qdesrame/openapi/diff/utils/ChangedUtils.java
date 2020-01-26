@@ -1,6 +1,7 @@
 package com.qdesrame.openapi.diff.utils;
 
 import com.qdesrame.openapi.diff.model.Changed;
+
 import java.util.Optional;
 
 public class ChangedUtils {

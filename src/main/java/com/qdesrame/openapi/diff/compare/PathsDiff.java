@@ -1,14 +1,19 @@
 package com.qdesrame.openapi.diff.compare;
 
-import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
-
 import com.qdesrame.openapi.diff.model.ChangedPaths;
 import com.qdesrame.openapi.diff.model.DiffContext;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
 
 public class PathsDiff {
   private static final String REGEX_PATH = "\\{([^/]+)\\}";

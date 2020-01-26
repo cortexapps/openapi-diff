@@ -1,15 +1,16 @@
 package com.qdesrame.openapi.diff.compare;
 
-import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
-
 import com.qdesrame.openapi.diff.model.ChangedHeader;
 import com.qdesrame.openapi.diff.model.ChangedHeaders;
 import com.qdesrame.openapi.diff.model.DiffContext;
 import io.swagger.v3.oas.models.headers.Header;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
+import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
 
 /** Created by adarsh.sharma on 28/12/17. */
 public class HeadersDiff {

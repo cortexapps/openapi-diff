@@ -1,13 +1,7 @@
 package com.qdesrame.openapi.diff.model;
 
 import java.util.Objects;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 
-@Getter
-@Setter
-@Accessors(chain = true)
 public class ChangedMetadata implements Changed {
 
   private String left;
@@ -20,4 +14,22 @@ public class ChangedMetadata implements Changed {
     }
     return DiffResult.METADATA;
   }
+
+    public String getLeft() {
+        return this.left;
+    }
+
+    public String getRight() {
+        return this.right;
+    }
+
+    public ChangedMetadata setLeft(String left) {
+        this.left = left;
+        return this;
+    }
+
+    public ChangedMetadata setRight(String right) {
+        this.right = right;
+        return this;
+    }
 }

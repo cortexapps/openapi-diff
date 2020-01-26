@@ -1,14 +1,19 @@
 package com.qdesrame.openapi.diff.compare;
 
-import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
-import static com.qdesrame.openapi.diff.utils.Copy.copyMap;
-
 import com.qdesrame.openapi.diff.model.Change;
 import com.qdesrame.openapi.diff.model.Changed;
 import com.qdesrame.openapi.diff.model.ChangedExtensions;
 import com.qdesrame.openapi.diff.model.DiffContext;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.ServiceLoader;
 import java.util.function.Function;
+
+import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
+import static com.qdesrame.openapi.diff.utils.Copy.copyMap;
 
 public class ExtensionsDiff {
   private final OpenApiDiff openApiDiff;

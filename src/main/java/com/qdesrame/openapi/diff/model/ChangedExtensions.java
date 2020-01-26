@@ -6,13 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 
-@Getter
-@Setter
-@Accessors
 public class ChangedExtensions implements ComposedChanged {
   private final Map<String, Object> oldExtensions;
   private final Map<String, Object> newExtensions;
@@ -44,4 +38,40 @@ public class ChangedExtensions implements ComposedChanged {
   public DiffResult isCoreChanged() {
     return DiffResult.NO_CHANGES;
   }
+
+    public Map<String, Object> getOldExtensions() {
+        return this.oldExtensions;
+    }
+
+    public Map<String, Object> getNewExtensions() {
+        return this.newExtensions;
+    }
+
+    public DiffContext getContext() {
+        return this.context;
+    }
+
+    public Map<String, Changed> getIncreased() {
+        return this.increased;
+    }
+
+    public Map<String, Changed> getMissing() {
+        return this.missing;
+    }
+
+    public Map<String, Changed> getChanged() {
+        return this.changed;
+    }
+
+    public void setIncreased(Map<String, Changed> increased) {
+        this.increased = increased;
+    }
+
+    public void setMissing(Map<String, Changed> missing) {
+        this.missing = missing;
+    }
+
+    public void setChanged(Map<String, Changed> changed) {
+        this.changed = changed;
+    }
 }

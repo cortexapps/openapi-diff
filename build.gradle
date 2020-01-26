@@ -1,0 +1,9 @@
+dependencies {
+    implementation 'io.swagger.parser.v3:swagger-parser-v3:2.0.13'
+    implementation 'com.j2html:j2html:1.2.0'
+    implementation 'org.apache.commons:commons-collections4:4.4'
+    implementation 'commons-cli:commons-cli:1.4'
+    implementation 'commons-httpclient:commons-httpclient:3.1'
+
+    testImplementation 'org.assertj:assertj-core:3.13.2'
+}

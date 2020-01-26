@@ -1,14 +1,19 @@
 package com.qdesrame.openapi.diff.compare;
 
-import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
-import static com.qdesrame.openapi.diff.utils.ChangedUtils.isUnchanged;
-
 import com.qdesrame.openapi.diff.model.ChangedContent;
 import com.qdesrame.openapi.diff.model.ChangedMediaType;
 import com.qdesrame.openapi.diff.model.DiffContext;
 import io.swagger.v3.oas.models.media.Content;
 import io.swagger.v3.oas.models.media.MediaType;
-import java.util.*;
+
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
+import static com.qdesrame.openapi.diff.utils.ChangedUtils.isUnchanged;
 
 public class ContentDiff implements Comparable<Content> {
 

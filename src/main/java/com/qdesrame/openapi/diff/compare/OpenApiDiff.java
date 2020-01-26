@@ -1,23 +1,26 @@
 package com.qdesrame.openapi.diff.compare;
 
-import static com.qdesrame.openapi.diff.compare.PathsDiff.valOrEmpty;
-
-import com.qdesrame.openapi.diff.model.*;
 import com.qdesrame.openapi.diff.model.ChangedExtensions;
+import com.qdesrame.openapi.diff.model.ChangedOpenApi;
+import com.qdesrame.openapi.diff.model.ChangedOperation;
+import com.qdesrame.openapi.diff.model.ChangedPath;
+import com.qdesrame.openapi.diff.model.ChangedPaths;
+import com.qdesrame.openapi.diff.model.Endpoint;
 import com.qdesrame.openapi.diff.utils.EndpointUtils;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import lombok.Getter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-@Getter
+import static com.qdesrame.openapi.diff.compare.PathsDiff.valOrEmpty;
+
 public class OpenApiDiff {
 
   public static final String SWAGGER_VERSION_V2 = "2.0";
@@ -175,4 +178,104 @@ public class OpenApiDiff {
         .setChangedOperations(changedOperations)
         .setChangedExtensions(changedExtensions);
   }
+
+    public PathsDiff getPathsDiff() {
+        return this.pathsDiff;
+    }
+
+    public PathDiff getPathDiff() {
+        return this.pathDiff;
+    }
+
+    public SchemaDiff getSchemaDiff() {
+        return this.schemaDiff;
+    }
+
+    public ContentDiff getContentDiff() {
+        return this.contentDiff;
+    }
+
+    public ParametersDiff getParametersDiff() {
+        return this.parametersDiff;
+    }
+
+    public ParameterDiff getParameterDiff() {
+        return this.parameterDiff;
+    }
+
+    public RequestBodyDiff getRequestBodyDiff() {
+        return this.requestBodyDiff;
+    }
+
+    public ResponseDiff getResponseDiff() {
+        return this.responseDiff;
+    }
+
+    public HeadersDiff getHeadersDiff() {
+        return this.headersDiff;
+    }
+
+    public HeaderDiff getHeaderDiff() {
+        return this.headerDiff;
+    }
+
+    public ApiResponseDiff getApiResponseDiff() {
+        return this.apiResponseDiff;
+    }
+
+    public OperationDiff getOperationDiff() {
+        return this.operationDiff;
+    }
+
+    public SecurityRequirementsDiff getSecurityRequirementsDiff() {
+        return this.securityRequirementsDiff;
+    }
+
+    public SecurityRequirementDiff getSecurityRequirementDiff() {
+        return this.securityRequirementDiff;
+    }
+
+    public SecuritySchemeDiff getSecuritySchemeDiff() {
+        return this.securitySchemeDiff;
+    }
+
+    public OAuthFlowsDiff getOAuthFlowsDiff() {
+        return this.oAuthFlowsDiff;
+    }
+
+    public OAuthFlowDiff getOAuthFlowDiff() {
+        return this.oAuthFlowDiff;
+    }
+
+    public ExtensionsDiff getExtensionsDiff() {
+        return this.extensionsDiff;
+    }
+
+    public MetadataDiff getMetadataDiff() {
+        return this.metadataDiff;
+    }
+
+    public OpenAPI getOldSpecOpenApi() {
+        return this.oldSpecOpenApi;
+    }
+
+    public OpenAPI getNewSpecOpenApi() {
+        return this.newSpecOpenApi;
+    }
+
+    public List<Endpoint> getNewEndpoints() {
+        return this.newEndpoints;
+    }
+
+    public List<Endpoint> getMissingEndpoints() {
+        return this.missingEndpoints;
+    }
+
+    public List<ChangedOperation> getChangedOperations() {
+        return this.changedOperations;
+    }
+
+    public ChangedExtensions getChangedExtensions() {
+        return this.changedExtensions;
+    }
 }

@@ -1,11 +1,12 @@
 package com.qdesrame.openapi.diff.compare;
 
-import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
-
 import com.qdesrame.openapi.diff.model.ChangedMetadata;
 import com.qdesrame.openapi.diff.model.DiffContext;
 import io.swagger.v3.oas.models.Components;
+
 import java.util.Optional;
+
+import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
 
 public class MetadataDiff {
 

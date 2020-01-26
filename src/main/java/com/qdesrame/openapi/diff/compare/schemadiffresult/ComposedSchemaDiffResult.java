@@ -11,12 +11,13 @@ import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.media.ComposedSchema;
 import io.swagger.v3.oas.models.media.Discriminator;
 import io.swagger.v3.oas.models.media.Schema;
+import org.apache.commons.collections4.CollectionUtils;
+
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import org.apache.commons.collections4.CollectionUtils;
 
 /** Created by adarsh.sharma on 20/12/17. */
 public class ComposedSchemaDiffResult extends SchemaDiffResult {

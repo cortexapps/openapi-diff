@@ -1,16 +1,11 @@
 package com.qdesrame.openapi.diff.model;
 
 import io.swagger.v3.oas.models.security.SecurityRequirement;
+
 import java.util.ArrayList;
 import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 
 /** Created by adarsh.sharma on 06/01/18. */
-@Getter
-@Setter
-@Accessors(chain = true)
 public class ChangedSecurityRequirement implements ComposedChanged {
   private SecurityRequirement oldSecurityRequirement;
   private SecurityRequirement newSecurityRequirement;
@@ -59,4 +54,49 @@ public class ChangedSecurityRequirement implements ComposedChanged {
   public void addChanged(ChangedSecurityScheme changedSecurityScheme) {
     changed.add(changedSecurityScheme);
   }
+
+    public SecurityRequirement getOldSecurityRequirement() {
+        return this.oldSecurityRequirement;
+    }
+
+    public SecurityRequirement getNewSecurityRequirement() {
+        return this.newSecurityRequirement;
+    }
+
+    public SecurityRequirement getMissing() {
+        return this.missing;
+    }
+
+    public SecurityRequirement getIncreased() {
+        return this.increased;
+    }
+
+    public List<ChangedSecurityScheme> getChanged() {
+        return this.changed;
+    }
+
+    public ChangedSecurityRequirement setOldSecurityRequirement(SecurityRequirement oldSecurityRequirement) {
+        this.oldSecurityRequirement = oldSecurityRequirement;
+        return this;
+    }
+
+    public ChangedSecurityRequirement setNewSecurityRequirement(SecurityRequirement newSecurityRequirement) {
+        this.newSecurityRequirement = newSecurityRequirement;
+        return this;
+    }
+
+    public ChangedSecurityRequirement setMissing(SecurityRequirement missing) {
+        this.missing = missing;
+        return this;
+    }
+
+    public ChangedSecurityRequirement setIncreased(SecurityRequirement increased) {
+        this.increased = increased;
+        return this;
+    }
+
+    public ChangedSecurityRequirement setChanged(List<ChangedSecurityScheme> changed) {
+        this.changed = changed;
+        return this;
+    }
 }

@@ -1,15 +1,16 @@
 package com.qdesrame.openapi.diff.compare;
 
-import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
-
 import com.qdesrame.openapi.diff.model.ChangedResponse;
 import com.qdesrame.openapi.diff.model.DiffContext;
 import com.qdesrame.openapi.diff.utils.RefPointer;
 import com.qdesrame.openapi.diff.utils.RefType;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.responses.ApiResponse;
+
 import java.util.HashSet;
 import java.util.Optional;
+
+import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
 
 /** Created by adarsh.sharma on 28/12/17. */
 public class ResponseDiff extends ReferenceDiffCache<ApiResponse, ChangedResponse> {

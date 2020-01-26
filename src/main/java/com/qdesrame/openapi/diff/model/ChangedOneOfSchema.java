@@ -1,17 +1,12 @@
 package com.qdesrame.openapi.diff.model;
 
 import io.swagger.v3.oas.models.media.Schema;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 
 /** Created by adarsh.sharma on 22/12/17. */
-@Getter
-@Setter
-@Accessors(chain = true)
 public class ChangedOneOfSchema implements ComposedChanged {
   private final Map<String, String> oldMapping;
   private final Map<String, String> newMapping;
@@ -43,4 +38,43 @@ public class ChangedOneOfSchema implements ComposedChanged {
     }
     return DiffResult.INCOMPATIBLE;
   }
+
+    public Map<String, String> getOldMapping() {
+        return this.oldMapping;
+    }
+
+    public Map<String, String> getNewMapping() {
+        return this.newMapping;
+    }
+
+    public DiffContext getContext() {
+        return this.context;
+    }
+
+    public Map<String, Schema> getIncreased() {
+        return this.increased;
+    }
+
+    public Map<String, Schema> getMissing() {
+        return this.missing;
+    }
+
+    public Map<String, ChangedSchema> getChanged() {
+        return this.changed;
+    }
+
+    public ChangedOneOfSchema setIncreased(Map<String, Schema> increased) {
+        this.increased = increased;
+        return this;
+    }
+
+    public ChangedOneOfSchema setMissing(Map<String, Schema> missing) {
+        this.missing = missing;
+        return this;
+    }
+
+    public ChangedOneOfSchema setChanged(Map<String, ChangedSchema> changed) {
+        this.changed = changed;
+        return this;
+    }
 }

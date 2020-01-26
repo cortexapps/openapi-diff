@@ -1,9 +1,6 @@
 package com.qdesrame.openapi.diff.utils;
 
-import lombok.Getter;
-
 /** Created by adarsh.sharma on 07/01/18. */
-@Getter
 public enum RefType {
   REQUEST_BODIES("requestBodies"),
   RESPONSES("responses"),
@@ -18,4 +15,8 @@ public enum RefType {
   }
 
   private String name;
+
+    public String getName() {
+        return this.name;
+    }
 }

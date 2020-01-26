@@ -1,10 +1,21 @@
 package com.qdesrame.openapi.diff.output;
 
-import static com.qdesrame.openapi.diff.model.Changed.result;
-import static com.qdesrame.openapi.diff.utils.ChangedUtils.isUnchanged;
-import static java.lang.String.format;
-
-import com.qdesrame.openapi.diff.model.*;
+import com.qdesrame.openapi.diff.model.ChangedApiResponse;
+import com.qdesrame.openapi.diff.model.ChangedContent;
+import com.qdesrame.openapi.diff.model.ChangedHeader;
+import com.qdesrame.openapi.diff.model.ChangedHeaders;
+import com.qdesrame.openapi.diff.model.ChangedList;
+import com.qdesrame.openapi.diff.model.ChangedMediaType;
+import com.qdesrame.openapi.diff.model.ChangedMetadata;
+import com.qdesrame.openapi.diff.model.ChangedOneOfSchema;
+import com.qdesrame.openapi.diff.model.ChangedOpenApi;
+import com.qdesrame.openapi.diff.model.ChangedOperation;
+import com.qdesrame.openapi.diff.model.ChangedParameter;
+import com.qdesrame.openapi.diff.model.ChangedParameters;
+import com.qdesrame.openapi.diff.model.ChangedResponse;
+import com.qdesrame.openapi.diff.model.ChangedSchema;
+import com.qdesrame.openapi.diff.model.DiffContext;
+import com.qdesrame.openapi.diff.model.Endpoint;
 import com.qdesrame.openapi.diff.utils.RefPointer;
 import com.qdesrame.openapi.diff.utils.RefType;
 import io.swagger.v3.oas.models.headers.Header;
@@ -14,14 +25,17 @@ import io.swagger.v3.oas.models.media.MediaType;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.responses.ApiResponse;
-import java.util.List;
-import java.util.Map;
-import lombok.Getter;
-import lombok.Setter;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.Map;
+
+import static com.qdesrame.openapi.diff.model.Changed.result;
+import static com.qdesrame.openapi.diff.utils.ChangedUtils.isUnchanged;
+import static java.lang.String.format;
 
 public class MarkdownRender implements Render {
 
@@ -44,7 +58,7 @@ public class MarkdownRender implements Render {
    * A paramater which indicates whether or not metadata (summary and metadata) changes should be
    * logged in the changelog file.
    */
-  @Getter @Setter protected boolean showChangedMetadata;
+  protected boolean showChangedMetadata;
 
   public MarkdownRender() {}
 
@@ -563,4 +577,12 @@ public class MarkdownRender implements Render {
     return refPointer.resolveRef(
         diff.getNewSpecOpenApi().getComponents(), schema, schema.get$ref());
   }
+
+    public boolean isShowChangedMetadata() {
+        return this.showChangedMetadata;
+    }
+
+    public void setShowChangedMetadata(boolean showChangedMetadata) {
+        this.showChangedMetadata = showChangedMetadata;
+    }
 }

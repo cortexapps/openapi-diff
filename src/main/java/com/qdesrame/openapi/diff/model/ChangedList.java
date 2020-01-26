@@ -3,13 +3,7 @@ package com.qdesrame.openapi.diff.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 
-@Getter
-@Setter
-@Accessors(chain = true)
 public abstract class ChangedList<T> implements Changed {
   protected DiffContext context;
   protected List<T> oldValue;
@@ -38,7 +32,61 @@ public abstract class ChangedList<T> implements Changed {
 
   public abstract DiffResult isItemsChanged();
 
-  public static class SimpleChangedList<T> extends ChangedList<T> {
+    public DiffContext getContext() {
+        return this.context;
+    }
+
+    public List<T> getOldValue() {
+        return this.oldValue;
+    }
+
+    public List<T> getNewValue() {
+        return this.newValue;
+    }
+
+    public List<T> getIncreased() {
+        return this.increased;
+    }
+
+    public List<T> getMissing() {
+        return this.missing;
+    }
+
+    public List<T> getShared() {
+        return this.shared;
+    }
+
+    public ChangedList<T> setContext(DiffContext context) {
+        this.context = context;
+        return this;
+    }
+
+    public ChangedList<T> setOldValue(List<T> oldValue) {
+        this.oldValue = oldValue;
+        return this;
+    }
+
+    public ChangedList<T> setNewValue(List<T> newValue) {
+        this.newValue = newValue;
+        return this;
+    }
+
+    public ChangedList<T> setIncreased(List<T> increased) {
+        this.increased = increased;
+        return this;
+    }
+
+    public ChangedList<T> setMissing(List<T> missing) {
+        this.missing = missing;
+        return this;
+    }
+
+    public ChangedList<T> setShared(List<T> shared) {
+        this.shared = shared;
+        return this;
+    }
+
+    public static class SimpleChangedList<T> extends ChangedList<T> {
 
     public SimpleChangedList(List<T> oldValue, List<T> newValue) {
       super(oldValue, newValue, null);

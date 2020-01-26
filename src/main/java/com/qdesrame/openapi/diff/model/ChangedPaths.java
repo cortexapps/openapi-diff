@@ -1,15 +1,12 @@
 package com.qdesrame.openapi.diff.model;
 
 import io.swagger.v3.oas.models.PathItem;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class ChangedPaths implements ComposedChanged {
   private final Map<String, PathItem> oldPathMap;
   private final Map<String, PathItem> newPathMap;
@@ -41,4 +38,36 @@ public class ChangedPaths implements ComposedChanged {
     }
     return DiffResult.INCOMPATIBLE;
   }
+
+    public Map<String, PathItem> getOldPathMap() {
+        return this.oldPathMap;
+    }
+
+    public Map<String, PathItem> getNewPathMap() {
+        return this.newPathMap;
+    }
+
+    public Map<String, PathItem> getIncreased() {
+        return this.increased;
+    }
+
+    public Map<String, PathItem> getMissing() {
+        return this.missing;
+    }
+
+    public Map<String, ChangedPath> getChanged() {
+        return this.changed;
+    }
+
+    public void setIncreased(Map<String, PathItem> increased) {
+        this.increased = increased;
+    }
+
+    public void setMissing(Map<String, PathItem> missing) {
+        this.missing = missing;
+    }
+
+    public void setChanged(Map<String, ChangedPath> changed) {
+        this.changed = changed;
+    }
 }

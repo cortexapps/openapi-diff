@@ -1,15 +1,10 @@
 package com.qdesrame.openapi.diff.model;
 
 import io.swagger.v3.oas.models.media.Schema;
+
 import java.util.Collections;
 import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 
-@Getter
-@Setter
-@Accessors(chain = true)
 public class ChangedMediaType implements ComposedChanged {
   private final Schema oldSchema;
   private final Schema newSchema;
@@ -31,4 +26,25 @@ public class ChangedMediaType implements ComposedChanged {
   public DiffResult isCoreChanged() {
     return DiffResult.NO_CHANGES;
   }
+
+    public Schema getOldSchema() {
+        return this.oldSchema;
+    }
+
+    public Schema getNewSchema() {
+        return this.newSchema;
+    }
+
+    public DiffContext getContext() {
+        return this.context;
+    }
+
+    public ChangedSchema getSchema() {
+        return this.schema;
+    }
+
+    public ChangedMediaType setSchema(ChangedSchema schema) {
+        this.schema = schema;
+        return this;
+    }
 }

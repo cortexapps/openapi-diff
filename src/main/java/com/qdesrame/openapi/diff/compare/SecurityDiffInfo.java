@@ -3,22 +3,23 @@ package com.qdesrame.openapi.diff.compare;
 import com.qdesrame.openapi.diff.model.ChangedList;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
+
 import java.util.List;
 import java.util.Optional;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 
 /** Created by adarsh.sharma on 11/01/18. */
-@Getter
-@Setter
-@AllArgsConstructor
 public class SecurityDiffInfo {
   private String ref;
   private SecurityScheme securityScheme;
   private List<String> scopes;
 
-  public static SecurityRequirement getSecurityRequirement(
+    public SecurityDiffInfo(String ref, SecurityScheme securityScheme, List<String> scopes) {
+        this.ref = ref;
+        this.securityScheme = securityScheme;
+        this.scopes = scopes;
+    }
+
+    public static SecurityRequirement getSecurityRequirement(
       List<SecurityDiffInfo> securityDiffInfoList) {
     SecurityRequirement securityRequirement = new SecurityRequirement();
     for (SecurityDiffInfo securityDiffInfo : securityDiffInfoList) {
@@ -61,4 +62,28 @@ public class SecurityDiffInfo {
     result = 31 * result + (scopes != null ? scopes.hashCode() : 0);
     return result;
   }
+
+    public String getRef() {
+        return this.ref;
+    }
+
+    public SecurityScheme getSecurityScheme() {
+        return this.securityScheme;
+    }
+
+    public List<String> getScopes() {
+        return this.scopes;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    public void setSecurityScheme(SecurityScheme securityScheme) {
+        this.securityScheme = securityScheme;
+    }
+
+    public void setScopes(List<String> scopes) {
+        this.scopes = scopes;
+    }
 }

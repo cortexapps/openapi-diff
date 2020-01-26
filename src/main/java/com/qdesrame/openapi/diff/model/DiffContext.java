@@ -1,10 +1,11 @@
 package com.qdesrame.openapi.diff.model;
 
 import io.swagger.v3.oas.models.PathItem;
-import java.util.HashMap;
-import java.util.Map;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /** Created by Quentin Desramé on 04/04/17. */
 public class DiffContext {

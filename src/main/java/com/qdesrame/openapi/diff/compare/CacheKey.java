@@ -1,11 +1,9 @@
 package com.qdesrame.openapi.diff.compare;
 
 import com.qdesrame.openapi.diff.model.DiffContext;
-import lombok.Getter;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-@Getter
 public final class CacheKey {
   private final String left;
   private final String right;
@@ -36,4 +34,16 @@ public final class CacheKey {
   public int hashCode() {
     return new HashCodeBuilder(17, 37).append(left).append(right).append(context).toHashCode();
   }
+
+    public String getLeft() {
+        return this.left;
+    }
+
+    public String getRight() {
+        return this.right;
+    }
+
+    public DiffContext getContext() {
+        return this.context;
+    }
 }

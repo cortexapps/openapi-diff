@@ -1,8 +1,5 @@
 package com.qdesrame.openapi.diff.model;
 
-import lombok.Getter;
-
-@Getter
 public class Change<T> {
   private final T oldValue;
   private final T newValue;
@@ -26,7 +23,19 @@ public class Change<T> {
     return new Change<>(oldValue, null, Type.REMOVED);
   }
 
-  public enum Type {
+    public T getOldValue() {
+        return this.oldValue;
+    }
+
+    public T getNewValue() {
+        return this.newValue;
+    }
+
+    public Type getType() {
+        return this.type;
+    }
+
+    public enum Type {
     ADDED,
     CHANGED,
     REMOVED

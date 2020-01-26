@@ -1,16 +1,11 @@
 package com.qdesrame.openapi.diff.model;
 
 import io.swagger.v3.oas.models.security.SecurityScheme;
+
 import java.util.Arrays;
 import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 
 /** Created by adarsh.sharma on 11/01/18. */
-@Getter
-@Setter
-@Accessors(chain = true)
 public class ChangedSecurityScheme implements ComposedChanged {
   private SecurityScheme oldSecurityScheme;
   private SecurityScheme newSecurityScheme;
@@ -55,4 +50,103 @@ public class ChangedSecurityScheme implements ComposedChanged {
     }
     return DiffResult.INCOMPATIBLE;
   }
+
+    public SecurityScheme getOldSecurityScheme() {
+        return this.oldSecurityScheme;
+    }
+
+    public SecurityScheme getNewSecurityScheme() {
+        return this.newSecurityScheme;
+    }
+
+    public boolean isChangedType() {
+        return this.changedType;
+    }
+
+    public boolean isChangedIn() {
+        return this.changedIn;
+    }
+
+    public boolean isChangedScheme() {
+        return this.changedScheme;
+    }
+
+    public boolean isChangedBearerFormat() {
+        return this.changedBearerFormat;
+    }
+
+    public boolean isChangedOpenIdConnectUrl() {
+        return this.changedOpenIdConnectUrl;
+    }
+
+    public ChangedSecuritySchemeScopes getChangedScopes() {
+        return this.changedScopes;
+    }
+
+    public ChangedMetadata getDescription() {
+        return this.description;
+    }
+
+    public ChangedOAuthFlows getOAuthFlows() {
+        return this.oAuthFlows;
+    }
+
+    public ChangedExtensions getExtensions() {
+        return this.extensions;
+    }
+
+    public ChangedSecurityScheme setOldSecurityScheme(SecurityScheme oldSecurityScheme) {
+        this.oldSecurityScheme = oldSecurityScheme;
+        return this;
+    }
+
+    public ChangedSecurityScheme setNewSecurityScheme(SecurityScheme newSecurityScheme) {
+        this.newSecurityScheme = newSecurityScheme;
+        return this;
+    }
+
+    public ChangedSecurityScheme setChangedType(boolean changedType) {
+        this.changedType = changedType;
+        return this;
+    }
+
+    public ChangedSecurityScheme setChangedIn(boolean changedIn) {
+        this.changedIn = changedIn;
+        return this;
+    }
+
+    public ChangedSecurityScheme setChangedScheme(boolean changedScheme) {
+        this.changedScheme = changedScheme;
+        return this;
+    }
+
+    public ChangedSecurityScheme setChangedBearerFormat(boolean changedBearerFormat) {
+        this.changedBearerFormat = changedBearerFormat;
+        return this;
+    }
+
+    public ChangedSecurityScheme setChangedOpenIdConnectUrl(boolean changedOpenIdConnectUrl) {
+        this.changedOpenIdConnectUrl = changedOpenIdConnectUrl;
+        return this;
+    }
+
+    public ChangedSecurityScheme setChangedScopes(ChangedSecuritySchemeScopes changedScopes) {
+        this.changedScopes = changedScopes;
+        return this;
+    }
+
+    public ChangedSecurityScheme setDescription(ChangedMetadata description) {
+        this.description = description;
+        return this;
+    }
+
+    public ChangedSecurityScheme setOAuthFlows(ChangedOAuthFlows oAuthFlows) {
+        this.oAuthFlows = oAuthFlows;
+        return this;
+    }
+
+    public ChangedSecurityScheme setExtensions(ChangedExtensions extensions) {
+        this.extensions = extensions;
+        return this;
+    }
 }

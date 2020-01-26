@@ -1,7 +1,5 @@
 package com.qdesrame.openapi.diff.compare;
 
-import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
-
 import com.qdesrame.openapi.diff.model.ChangedSecurityRequirement;
 import com.qdesrame.openapi.diff.model.ChangedSecurityRequirements;
 import com.qdesrame.openapi.diff.model.DiffContext;
@@ -10,13 +8,16 @@ import com.qdesrame.openapi.diff.utils.RefType;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.apache.commons.lang3.tuple.Pair;
+
+import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
 
 /** Created by adarsh.sharma on 07/01/18. */
 public class SecurityRequirementsDiff {

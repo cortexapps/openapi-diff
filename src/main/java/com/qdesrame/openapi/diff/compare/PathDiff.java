@@ -1,14 +1,15 @@
 package com.qdesrame.openapi.diff.compare;
 
-import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
-
 import com.qdesrame.openapi.diff.model.ChangedPath;
 import com.qdesrame.openapi.diff.model.DiffContext;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
+import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
 
 public class PathDiff {
   private OpenApiDiff openApiDiff;

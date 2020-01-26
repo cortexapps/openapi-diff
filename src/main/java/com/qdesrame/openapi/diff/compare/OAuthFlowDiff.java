@@ -1,13 +1,14 @@
 package com.qdesrame.openapi.diff.compare;
 
-import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
-import static java.util.Optional.ofNullable;
-
 import com.qdesrame.openapi.diff.model.ChangedOAuthFlow;
 import io.swagger.v3.oas.models.security.OAuthFlow;
+
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+
+import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
+import static java.util.Optional.ofNullable;
 
 /** Created by adarsh.sharma on 12/01/18. */
 public class OAuthFlowDiff {

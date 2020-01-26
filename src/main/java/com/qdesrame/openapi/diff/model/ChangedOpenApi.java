@@ -2,17 +2,12 @@ package com.qdesrame.openapi.diff.model;
 
 import com.qdesrame.openapi.diff.utils.EndpointUtils;
 import io.swagger.v3.oas.models.OpenAPI;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 
 /** Created by adarsh.sharma on 22/12/17. */
-@Getter
-@Setter
-@Accessors(chain = true)
 public class ChangedOpenApi implements ComposedChanged {
   private OpenAPI oldSpecOpenApi;
   private OpenAPI newSpecOpenApi;
@@ -49,4 +44,58 @@ public class ChangedOpenApi implements ComposedChanged {
     }
     return DiffResult.INCOMPATIBLE;
   }
+
+    public OpenAPI getOldSpecOpenApi() {
+        return this.oldSpecOpenApi;
+    }
+
+    public OpenAPI getNewSpecOpenApi() {
+        return this.newSpecOpenApi;
+    }
+
+    public List<Endpoint> getNewEndpoints() {
+        return this.newEndpoints;
+    }
+
+    public List<Endpoint> getMissingEndpoints() {
+        return this.missingEndpoints;
+    }
+
+    public List<ChangedOperation> getChangedOperations() {
+        return this.changedOperations;
+    }
+
+    public ChangedExtensions getChangedExtensions() {
+        return this.changedExtensions;
+    }
+
+    public ChangedOpenApi setOldSpecOpenApi(OpenAPI oldSpecOpenApi) {
+        this.oldSpecOpenApi = oldSpecOpenApi;
+        return this;
+    }
+
+    public ChangedOpenApi setNewSpecOpenApi(OpenAPI newSpecOpenApi) {
+        this.newSpecOpenApi = newSpecOpenApi;
+        return this;
+    }
+
+    public ChangedOpenApi setNewEndpoints(List<Endpoint> newEndpoints) {
+        this.newEndpoints = newEndpoints;
+        return this;
+    }
+
+    public ChangedOpenApi setMissingEndpoints(List<Endpoint> missingEndpoints) {
+        this.missingEndpoints = missingEndpoints;
+        return this;
+    }
+
+    public ChangedOpenApi setChangedOperations(List<ChangedOperation> changedOperations) {
+        this.changedOperations = changedOperations;
+        return this;
+    }
+
+    public ChangedOpenApi setChangedExtensions(ChangedExtensions changedExtensions) {
+        this.changedExtensions = changedExtensions;
+        return this;
+    }
 }

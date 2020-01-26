@@ -1,8 +1,8 @@
 package com.qdesrame.openapi.diff.model;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Objects;
-import javax.validation.constraints.NotNull;
 
 public interface ComposedChanged extends Changed {
 

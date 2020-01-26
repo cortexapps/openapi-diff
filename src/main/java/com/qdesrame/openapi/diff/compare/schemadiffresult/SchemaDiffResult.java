@@ -1,21 +1,29 @@
 package com.qdesrame.openapi.diff.compare.schemadiffresult;
 
-import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
-import static java.util.Optional.ofNullable;
-
 import com.qdesrame.openapi.diff.compare.ListDiff;
 import com.qdesrame.openapi.diff.compare.MapKeyDiff;
 import com.qdesrame.openapi.diff.compare.OpenApiDiff;
 import com.qdesrame.openapi.diff.model.Change;
 import com.qdesrame.openapi.diff.model.ChangedSchema;
 import com.qdesrame.openapi.diff.model.DiffContext;
-import com.qdesrame.openapi.diff.model.schema.*;
+import com.qdesrame.openapi.diff.model.schema.ChangedEnum;
+import com.qdesrame.openapi.diff.model.schema.ChangedMaxLength;
+import com.qdesrame.openapi.diff.model.schema.ChangedReadOnly;
+import com.qdesrame.openapi.diff.model.schema.ChangedRequired;
+import com.qdesrame.openapi.diff.model.schema.ChangedWriteOnly;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.media.Schema;
-import java.util.*;
-import lombok.Getter;
 
-@Getter
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+
+import static com.qdesrame.openapi.diff.utils.ChangedUtils.isChanged;
+import static java.util.Optional.ofNullable;
+
 public class SchemaDiffResult {
   protected ChangedSchema changedSchema;
   protected OpenApiDiff openApiDiff;
@@ -157,4 +165,12 @@ public class SchemaDiffResult {
       isChanged(apChangedSchema).ifPresent(changedSchema::setAddProp);
     }
   }
+
+    public ChangedSchema getChangedSchema() {
+        return this.changedSchema;
+    }
+
+    public OpenApiDiff getOpenApiDiff() {
+        return this.openApiDiff;
+    }
 }
