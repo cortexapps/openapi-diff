@@ -3,6 +3,8 @@
  *
  * This generated file contains a sample Kotlin library project to get you started.
  */
+import org.gradle.api.publish.PublishingExtension
+
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
@@ -10,7 +12,12 @@ plugins {
 
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
+    `maven-publish`
 }
+
+group = "com.qdesrame"
+version = "1.2.1"
+
 
 repositories {
     // Use jcenter for resolving dependencies.
@@ -45,6 +52,30 @@ dependencies {
 tasks {
     test {
         useJUnitPlatform()
+    }
+}
+
+val sourcesJar by tasks.registering(Jar::class) {
+    from(sourceSets.main.get().allSource)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("default") {
+            from(components["java"])
+            artifact(sourcesJar.get())
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/cortexapps/openapi-diff")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_PASSWORD")
+            }
+        }
     }
 }
 
