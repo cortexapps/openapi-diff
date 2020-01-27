@@ -15,7 +15,7 @@ plugins {
     `maven-publish`
 }
 
-group = "com.qdesrame"
+group = "com.brainera"
 version = "1.2.1"
 
 
@@ -37,10 +37,10 @@ dependencies {
     implementation("org.apache.commons:commons-collections4:4.4")
     implementation("commons-cli:commons-cli:1.4")
     implementation("commons-httpclient:commons-httpclient:3.1")
-    implementation(group = "org.slf4j", name = "slf4j-log4j12", version = "1.7.30")
 
 
     testImplementation("org.assertj:assertj-core:3.13.2")
+    testImplementation(group = "org.slf4j", name = "slf4j-log4j12", version = "1.7.30")
 
     // junit deps
     val junitVersion: String by project
