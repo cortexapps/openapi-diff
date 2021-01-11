@@ -33,6 +33,11 @@ public class OneOfDiffTest {
   }
 
   @Test
+  public void testInvalid() {
+    assertOpenApiAreEquals("invalid_onOf.yaml", "invalid_onOf.yaml");
+  }
+
+  @Test
   public void testComposedSchema() {
     assertOpenApiBackwardIncompatible(OPENAPI_DOC4, OPENAPI_DOC5);
   }

@@ -12,6 +12,8 @@ import io.swagger.v3.oas.models.media.ComposedSchema;
 import io.swagger.v3.oas.models.media.Discriminator;
 import io.swagger.v3.oas.models.media.Schema;
 import org.apache.commons.collections4.CollectionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -21,6 +23,8 @@ import java.util.stream.Collectors;
 
 /** Created by adarsh.sharma on 20/12/17. */
 public class ComposedSchemaDiffResult extends SchemaDiffResult {
+  private static Logger logger = LoggerFactory.getLogger(ComposedSchemaDiffResult.class);
+
   private static RefPointer<Schema> refPointer = new RefPointer<>(RefType.SCHEMAS);
 
   public ComposedSchemaDiffResult(OpenApiDiff openApiDiff) {
@@ -101,7 +105,8 @@ public class ComposedSchemaDiffResult extends SchemaDiffResult {
     for (Schema schema : composedSchema.getOneOf()) {
       String ref = schema.get$ref();
       if (ref == null) {
-        throw new IllegalArgumentException("invalid oneOf schema");
+          logger.info("Oneof schema with embedded schema not supported, skipping");
+          continue;
       }
       String schemaName = refPointer.getRefName(ref);
       if (schemaName == null) {
