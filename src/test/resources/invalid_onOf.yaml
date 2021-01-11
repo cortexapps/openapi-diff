@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: Test Service
+  version: 1.0.0
+paths:
+  /test:
+    get:
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      discriminator:
+                        propertyName: type
+                      oneOf:
+                        - type: object
+                          properties:
+                            data:
+                              type: object
+                              properties:
+                                i:
+                                  type: string
+                                  description: Post Id
+                              additionalProperties: true
+                            type:
+                              type: string
+                              enum:
+                                - post
+                        - type: object
+                          properties:
+                            data:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                                image:
+                                  type: string
+                                groupId:
+                                  type: string
+                                description:
+                                  type: string
+                              additionalProperties: true
+                            type:
+                              type: string
+                              enum:
+                                - groupCard
+                  offset:
+                    type: string
+                    nullable: true
